@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrangeiro</title>
+</head>
+<body>
+    <h1>Você é Estrangeiro?</h1>
+    Informe qual o seu país de nascimento: <input type="text" name="pais" id="pais">
+    <input type="button" value="Verificar" onclick="analisar()">
+    <div id="res"></div>
+    <script>
+        function analisar()
+ {
+            const paisInput = document.getElementById('pais');
+            const resultado = document.getElementById('res');
+            const pais = paisInput.value.trim().toLowerCase();
+
+            if (pais === "") {
+                resultado.textContent = `Seu país de origem é o ${paisInput}`;
+            } else if (pais === "brasil") {
+                resultado.textContent = "Você é brasileiro(a)!";
+            } else {
+                resultado.textContent = "Você é estrangeiro(a)!";
+            }
+        }
+    </script>
+</body>
+</html>
