@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Contador</title>
+    <style>
+        body{
+            background-color: rgb(70, 142, 236);
+            font: normal 15pt Arial;;
+        }
+        h1{
+            color: white;
+            text-align: center;
+        }
+        section{
+            background-color: white;
+            border-radius: 10px;
+            margin: auto;
+            padding: 15px;
+            width: 500px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.363);
+        }
+    </style>
+</head>
+<body>
+    <h1>Vamos Contar</h1>
+    <section>
+        <div id="dados">
+            <p>Início: <input type="number" name="inicio" id="inic"></p>
+            <p>Fim: <input type="number" name="fim" id="ifim"></p>
+            <p>Passo: <input type="passo" name="" id="ipas"></p>
+            <input type="button" value="Contar" onclick="contar()">
+        </div>
+        <div id="res">
+            <p>Preparando a contagem...</p>
+        </div>
+    </section>
+    <script>
+        function contar(){
+            var ini = document.getElementById('inic')
+            var fim = document.getElementById('ifim')
+            var passo = document.getElementById('ipas')
+            var res = document.getElementById('res')
+
+            if(ini.value.length == 0 || fim.value.length == 0 || passo.value.length == 0){
+                window.alert('[ERRO] Faltam dados')
+            }else {
+                res.innerHTML = 'Contando: <br>'
+                let i = Number(ini.value)
+                let f = Number(fim.value)
+                let p = Number(passo.value)
+                if(p <= 0){
+                    alert('Passo inválido! Considerando PASSO 1')
+                }
+                if (i < f){
+                    for(let c = i; c <= f; c += p) {
+                        res.innerHTML += `${c} \u{1f449}`
+                    }
+                } else {
+                    for(let c = i; c >= f; c -= p){
+                        res.innerHTML += `${c} \u{1f449}`
+                    }
+                }
+                res.innerHTML += `\u{1f3c1}`
+            }
+        }
+    </script>
+</body>
+</html>
